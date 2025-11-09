@@ -18,7 +18,7 @@ catalogs:
   typescript:
     typescript: ^5.6.3
     "@types/node": ^22.8.7
-    typedoc: ^0.26.10
+    typedoc: ^0.26.11
 
   # Build & Development Tools - Latest stable versions
   build:
@@ -81,7 +81,7 @@ catalogs:
 
   # Documentation Tools
   docs:
-    "typedoc-plugin-markdown": ^4.2.9
+    "typedoc-plugin-markdown": ^4.2.0
     "http-server": ^14.1.1
 
 # Package manager specification

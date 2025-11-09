@@ -25,7 +25,10 @@
   ],
   "scripts": {
     "//=== Core Development =====": "",
-    "build": "pnpm run -r build",
+    "build:tokens": "pnpm --filter @dynui-max/design-tokens build",
+    "build:core": "pnpm --filter @dynui-max/core build",
+    "build": "pnpm build:tokens && pnpm build:core && pnpm --filter @dynui-max/* build",
+    "build:types": "pnpm --filter @dynui-max/* run tsc --emitDeclarationOnly",
     "dev": "concurrently \"pnpm --filter=@dynui-max/core run dev\" \"pnpm --filter=@dynui-max/storybook run dev\"",
     "clean": "pnpm -r run clean && pnpm clean:artifacts",
     "clean:artifacts": "del-cli packages/*/dist apps/*/dist tools/*/dist apps/*/storybook-static **/tsconfig.tsbuildinfo",
@@ -86,8 +89,8 @@
     "axe-core": "catalog:testing",
     "bundlesize": "catalog:tooling",
     "chromatic": "catalog:storybook",
-    "concurrently": "^8.2.2",
-    "del-cli": "^5.1.0",
+    "concurrently": "catalog:tooling",
+    "del-cli": "catalog:tooling",
     "eslint": "catalog:quality",
     "eslint-config-prettier": "catalog:quality",
     "eslint-plugin-react": "catalog:quality",
@@ -102,7 +105,9 @@
     "tsup": "catalog:build",
     "typescript": "catalog:typescript",
     "vite": "catalog:build",
-    "vitest": "catalog:testing"
+    "vitest": "catalog:testing",
+    "typedoc": "catalog:typescript",
+    "typedoc-plugin-markdown": "catalog:docs"
   },
   "pnpm": {
     "allowedDeprecatedVersions": {
